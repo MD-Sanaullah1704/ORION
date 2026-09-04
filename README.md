@@ -181,6 +181,9 @@ The current backend provides the foundation for the ORION processing pipeline.
                     │  Local / Offline     │
                     │  Data + Vector Index │
                     └──────────────────────┘
+```
+**Folder Structure**
+```text
 
 ORION/
 │
@@ -216,6 +219,8 @@ ORION/
 ├── .gitignore
 ├── README.md
 └── ...
+```
+
 6. Technology Stack
 Backend
 Python
@@ -236,6 +241,8 @@ Frontend
 React
 Vite
 Leaflet / geospatial map interface
+
+
 7. API
 
 The current backend exposes the following endpoints.
@@ -270,7 +277,7 @@ Example response:
   "query": "construction",
   "count": 1,
   "results": [
-    {
+   {
       "id": "ORION-001"
     }
   ]
@@ -306,45 +313,7 @@ Frontend
 React
 Vite
 Leaflet / geospatial map interface
-7. API
 
-The current backend exposes the following endpoints.
-
-Health Check
-GET /health
-
-Example response:
-
-{
-  "status": "healthy"
-}
-List Scenes
-GET /scenes
-
-Returns the currently indexed scene metadata.
-
-Search Scenes
-POST /search
-
-Example request:
-
-{
-  "query": "construction",
-  "sensor": "ALL",
-  "change_type": "ALL"
-}
-
-Example response:
-
-{
-  "query": "construction",
-  "count": 1,
-  "results": [
-    {
-      "id": "ORION-001"
-    }
-  ]
-}
 
 The search endpoint currently supports:
 
@@ -423,6 +392,8 @@ Expected files:
 
 before.tif
 after.tif
+
+
 10. Running the Backend
 1. Create / activate the virtual environment
 
