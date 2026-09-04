@@ -4,6 +4,8 @@ import cv2
 import numpy as np
 import rasterio
 
+from backend.services.change_classifier import classify_regions
+
 
 def load_rgb(path):
     """
@@ -79,6 +81,7 @@ def analyze_regions(
     regions = []
 
     for label in range(1, number_of_labels):
+
         area = int(
             stats[label, cv2.CC_STAT_AREA]
         )
@@ -300,6 +303,16 @@ def detect_change(
         min_area=min_region_area
     )
 
+    ## ---------------------------------
+    # Change classification
+    # ---------------------------------
+
+    classified_regions = classify_regions(
+    regions,
+    before_image=before,
+    after_image=after
+)
+
     # ---------------------------------
     # Overall statistics
     # ---------------------------------
@@ -326,8 +339,8 @@ def detect_change(
     else:
         mean_change_intensity = 0.0
 
-    if regions:
-        largest_region = regions[0]
+    if classified_regions:
+        largest_region = classified_regions[0]
     else:
         largest_region = None
 
@@ -371,7 +384,7 @@ def detect_change(
             4
         ),
         "minimum_region_area": min_region_area,
-        "change_regions": len(regions),
+        "change_regions": len(classified_regions),
         "changed_pixels": changed_pixels,
         "total_pixels": total_pixels,
         "change_percentage": round(
@@ -383,6 +396,6 @@ def detect_change(
             4
         ),
         "largest_region": largest_region,
-        "regions": regions,
+        "regions": classified_regions,
         "change_mask": str(output_path)
     }
