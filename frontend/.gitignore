@@ -22,3 +22,96 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# =========================
+# VIRTUAL ENVIRONMENT
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# ENVIRONMENT / SECRETS
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# JUPYTER
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# VS CODE
+# =========================
+.vscode/
+!.vscode/extensions.json
+
+# =========================
+# FRONTEND
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# =========================
+# PYTHON / TOOL CACHE
+# =========================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# MODEL FILES
+# =========================
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# =========================
+# SATELLITE RAW DATA
+# =========================
+data/datasets/
+data/scenes/
+
+# =========================
+# GENERATED TILES
+# =========================
+data/tiles/
+
+# =========================
+# GENERATED FAISS INDEXES
+# =========================
+data/indexes/
+
+# =========================
+# GENERATED CHANGE ANALYSIS
+# =========================
+data/change_analysis/
+
+# =========================
+# TEMPORARY / GENERATED FILES
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
